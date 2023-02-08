@@ -15,6 +15,6 @@ public class Student {
     private int rollNumber;
     private String name;
     private String gender;
-    private List<Double> marks; // 5 subjects
+    private List<Double> marks; // 4 subjects
     private String city;
 }

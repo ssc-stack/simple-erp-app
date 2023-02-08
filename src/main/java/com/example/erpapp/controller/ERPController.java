@@ -1,5 +1,6 @@
 package com.example.erpapp.controller;
 
+import com.example.erpapp.dto.StudentPercentageDTO;
 import com.example.erpapp.model.Student;
 import com.example.erpapp.service.ERPService;
 import lombok.Getter;
@@ -32,5 +33,17 @@ public class ERPController {
     @GetMapping("find-student/rollno/{rollno}")
     public Student findStudentById(@PathVariable int rollno) {
         return erpService.findById(rollno);
+    }
+
+    @GetMapping("topper")
+    public Student findTopper() {
+        return erpService.findTopper();
+    }
+
+
+    @GetMapping("all-percentage")
+    public List<StudentPercentageDTO> findPercentage() {
+        List<StudentPercentageDTO> result=erpService.findAllPercentage();
+        return result;
     }
 }

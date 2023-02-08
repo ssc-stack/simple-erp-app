@@ -1,6 +1,8 @@
 package com.example.erpapp.service;
 
+import com.example.erpapp.dto.StudentPercentageDTO;
 import com.example.erpapp.model.Student;
+import org.apache.catalina.valves.StuckThreadDetectionValve;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -42,5 +44,30 @@ public class ERPService {
         }
 
         return null;
+    }
+
+    public Student findTopper() {
+        // ...
+        return null;
+    }
+
+    public List<StudentPercentageDTO> findAllPercentage() {
+        List<StudentPercentageDTO> percentages=new ArrayList<>();
+
+        for(Student student:students) {
+            List<Double> marks=student.getMarks();
+            double perc=0.0;
+            for(Double mark:marks) {
+                perc+=mark;
+            }
+            perc*=0.04;
+
+            StudentPercentageDTO studentPercentageDTO=new StudentPercentageDTO(
+                    student.getRollNumber(),student.getName(),perc);
+            percentages.add(studentPercentageDTO);
+        }
+
+        return percentages;
+
     }
 }
