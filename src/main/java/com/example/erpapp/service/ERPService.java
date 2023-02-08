@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ERPService {
 
-    private final List<Student> students=new ArrayList<>();
+    private static final List<Student> students=new ArrayList<>();
     private static int rollno=0;
 
     static {
